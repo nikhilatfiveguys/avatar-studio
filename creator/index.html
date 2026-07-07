@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avatar Studio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+        "@avaturn/sdk": "https://cdn.jsdelivr.net/npm/@avaturn/sdk/dist/index.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- 3D stage -->
+  <div id="stage">
+    <canvas id="stage-canvas"></canvas>
+
+    <div id="hud-top">
+      <button id="btn-create" class="pill primary">✨ Create your avatar</button>
+    </div>
+
+    <div id="hud-bottom">
+      <button class="pill anim-btn active" data-anim="idle">🧍 Idle</button>
+      <!-- dance buttons appended here -->
+      <label class="pill" id="btn-add" title="Load Mixamo .fbx or .glb animations">
+        ➕ Add dances
+        <input id="file-input" type="file" accept=".fbx,.glb" multiple hidden />
+      </label>
+    </div>
+
+    <div id="loading" class="hidden">Loading…</div>
+  </div>
+
+  <!-- Avaturn creator overlay -->
+  <div id="creator" class="hidden">
+    <div id="avaturn-sdk-container"></div>
+    <button id="btn-close" class="pill secondary">✕ Close</button>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
